@@ -1,0 +1,4 @@
+<view class="list-main">
+  <view>{{title}}：</view>
+  <sublist class="sub-list-main" wx:for="{{listData}}" wx:key="{{index}}" type="{{index}}" list="{{item}}"></sublist>
+</view>

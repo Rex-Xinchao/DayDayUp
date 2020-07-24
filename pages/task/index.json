@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tabbar": "../../coms/tabbar/index",
+    "list": "../../coms/tasklist/index"
+  }
+}

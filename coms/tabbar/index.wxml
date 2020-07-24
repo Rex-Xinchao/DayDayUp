@@ -1,0 +1,6 @@
+<view class="weibo-tabbar">
+  <view class="item-left" wx:for="{{menu}}" wx:key="name" mark:to="{{item.to}}" bindtap="pageTo">
+    <icon type="{{item.icon}}" color="#b1b1b1" size="40" />
+    <text style="color:{{'#b1b1b1'}}">{{item.name}}</text>
+  </view>
+</view>

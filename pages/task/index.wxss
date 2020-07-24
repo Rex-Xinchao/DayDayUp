@@ -1,0 +1,4 @@
+/* pages/task/index.wxss */
+.main{
+  padding-bottom: 97rpx;
+}

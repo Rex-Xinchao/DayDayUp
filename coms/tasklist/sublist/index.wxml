@@ -1,0 +1,15 @@
+<view class="sub-list-main" wx:if="{{list && list.length}}">
+  <view class="sub-title" bindtap="showMore">
+    <view class="sub-title-text">{{typeMap[type]}}</view>
+    <icon wx:if="{{isShow}}" type="arrow-up" color="#b1b1b1" size="40"></icon>
+    <icon wx:else type="arrow-down" color="#b1b1b1" size="40"></icon>
+  </view>
+  <view class="list-content" wx:if="{{isShow}}" wx:for="{{list}}" wx:key="name">
+    <view class="name">{{item.name}}
+      <view class="point">{{item.point}}</view>
+    </view>
+    <view class="progress">（{{item.current}}/{{item.limit}}）</view>
+    <view wx:if="{{item.current === item.limit}}" class="submit-button_finish" mark:data="{{item}}" mark:index="{{index}}" bindtap="finish">已完成</view>
+    <view wx:else class="submit-button" mark:data="{{item}}" mark:index="{{index}}" bindtap="finish">完成</view>
+  </view>
+</view>

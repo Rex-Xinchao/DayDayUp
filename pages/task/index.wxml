@@ -1,0 +1,8 @@
+<!--pages/task/index.wxml-->
+<view class="main">
+  <list title="每日任务" listData="{{daily}}"></list>
+  <list title="每周任务" listData="{{weekly}}"></list>
+  <list title="每月任务" listData="{{monthly}}"></list>
+  <list title="额外任务" listData="{{others}}"></list>
+</view>
+<tabbar></tabbar>

@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/task/index",
+    "pages/ache/index",
+    "pages/wish/index",
+    "pages/logs/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
