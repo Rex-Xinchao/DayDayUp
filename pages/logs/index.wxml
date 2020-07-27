@@ -1,3 +1,14 @@
 <!--pages/logs/index.wxml-->
-<text>pages/logs/index.wxml</text>
+<view class="main">
+  <view class="log-list" wx:for="{{logList}}" wx:key="{{item.id}}">
+    <view class="name">
+      <view class="type">[{{typeMap[item.type]}}]</view>
+      {{item.name}}</view>
+    <view>
+     <view class="time">{{item.updateTime}}</view>
+      <view class="point_add" wx:if="{{item.calc === 'add'}}">+{{item.point}}</view>
+      <view class="point_remove" wx:if="{{item.calc === 'remove'}}">-{{item.point}}</view>
+    </view>
+  </view>
+</view>
 <tabbar></tabbar>

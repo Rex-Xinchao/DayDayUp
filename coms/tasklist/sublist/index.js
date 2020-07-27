@@ -43,50 +43,24 @@ Component({
       if (data.current === data.limit) return
       let setData = {}
       data.current += 1
-      setData[`list[${index}]`] = data
-      this.setData(setData)
-      fsm.writeFile({
-        filePath: wx.env.USER_DATA_PATH + '/tmp.txt',
-        data: new Date() + "\n",
-        encoding: 'utf8',
-        success: res => {
-          console.info(res)
+      wx.request({
+        url: 'http://localhost:3000/task/update',
+        data: {
+          id:data.id,
+          current: data.current
         },
-        fail: res => {
-          console.info(res)
-        }
-      })
-      fsm.appendFile({
-        filePath: wx.env.USER_DATA_PATH + '/tmp.txt',
-        data: "123\n",
-        encoding: 'utf8',
-        success: res => {
-          console.info(res)
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded" //post
         },
-        fail: res => {
-          console.info(res)
-        }
-      });
-      fsm.readFile({
-        filePath: wx.env.USER_DATA_PATH + '/tmp.txt',
-        encoding: 'utf8',
-        success: function (res) {
+        success: (res) => {
           console.log(res.data)
+          if (res.data.code == 200) {
+            setData[`list[${index}]`] = data
+            this.setData(setData)
+          }
         }
       })
-      wx.getFileInfo({
-        tempFilePath: '../../../static/mock/log.js',
-        success(res) {
-          console.log(res)
-        },
-        fail(res) {
-          console.log(res)
-        },
-        complete(res) {
-          console.log(res)
-        },
-      })
-      console.log(wx.env.USER_DATA_PATH + '/tmp.txt')
     }
   }
 })
