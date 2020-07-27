@@ -30,9 +30,7 @@ Component({
   methods: {
     // 这里是一个自定义方法
     pageTo: (e) => {
-      console.log(e)
       const url = e.mark.to
-      console.log(url)
       // 判断是否为主页面防止原地跳转
       if (!e.currentTarget.dataset.hi) {
         wx.redirectTo({

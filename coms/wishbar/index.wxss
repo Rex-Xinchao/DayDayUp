@@ -1,0 +1,22 @@
+/* coms/wishbar/index.wxss */
+.wishbar-container{
+  width: 100%;
+  height: 100%;
+}
+
+.wishbar-container .list {
+  width: 100%;
+  height: auto;
+}
+
+.wishbar-container .check-btn {
+  width: calc(100% - 12rpx);
+  font-size: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  white-space: nowrap;
+  background-image: linear-gradient(to bottom right, #FFCC33, #FFFF00);
+  padding: 8px 9px;
+  margin-bottom: 20rpx;
+  color: #000033;
+}

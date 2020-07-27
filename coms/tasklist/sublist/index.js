@@ -54,7 +54,6 @@ Component({
           "Content-Type": "application/x-www-form-urlencoded" //post
         },
         success: (res) => {
-          console.log(res.data)
           if (res.data.code == 200) {
             setData[`list[${index}]`] = data
             this.setData(setData)

@@ -1,3 +1,24 @@
 <!--pages/wish/index.wxml-->
-<text>pages/wish/index.wxml</text>
+<view class="main">
+  <wishbar bind:typeChange="typeChange"></wishbar>
+  <view class="wish-main">
+    <view class="wish-statistic">
+      <view class="name">{{typeName}}</view>
+      <view class="progress">
+        <view class="bar" style="width: {{finished / total * 100}}%">
+        </view>
+        <view class="text">{{finished}} / {{total}}</view>
+      </view>
+    </view>
+    <view class="wish-list">
+      <text>*成就*</text>
+      <view class="list-main" wx:for="{{typeList}}" wx:key="{{index}}">
+        <view class="name">{{item.name}}</view>
+        <view class="point">成就点：{{item.point}}</view>
+        <view wx:if="{{item.finished == 1}}" class="submit-button submit-button_finish">已完成</view>
+        <view wx:else class="submit-button" mark:data="{{item}}" bindtap="finish">完成</view>
+      </view>
+    </view>
+  </view>
+</view>
 <tabbar></tabbar>
