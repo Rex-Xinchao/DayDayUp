@@ -1,32 +1,18 @@
-// pages/task/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     daily: [],
     weekly: [],
     monthly: [],
     others: [],
-    dialogShow: false
+    isShow: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: async function(options) {
-    let authSetting = wx.getStorageSync("authSetting")
+  onLoad: function(options) {
+    const authSetting = wx.getStorageSync("authSetting")
     this.initData()
-    if (!authSetting['scope.userInfo']) {
-      this.setData({
-        dialogShow: true
-      })
-    }
+    authSetting['scope.userInfo'] || this.dialogShow()
   },
-
   initData: function() {
-    let openid = wx.getStorageSync("openid")
+    const openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/task/list',
       data: {
@@ -58,10 +44,14 @@ Page({
       }
     })
   },
-
+  dialogShow: function() {
+    this.setData({
+      isShow: true
+    })
+  },
   dialogClose: function() {
     this.setData({
-      dialogShow: false
+      isShow: false
     })
   }
 })

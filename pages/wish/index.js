@@ -1,20 +1,10 @@
-// pages/wish/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     typeList: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     this.initData()
   },
-
   initData: function () {
     let openid = wx.getStorageSync("openid")
     wx.request({
@@ -35,14 +25,15 @@ Page({
       }
     })
   },
-
   finish: function (e) {
-    let openid = wx.getStorageSync("openid")
+    const wishid = e.mark.data.id
+    const time = Number(e.mark.data.time) + 1
+    const openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/wish/finish',
       data: {
-        id: e.mark.data.id,
-        time: Number(e.mark.data.time) + 1,
+        id: wishid,
+        time: time,
         openid: openid
       },
       method: "POST",

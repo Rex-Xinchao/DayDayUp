@@ -2,6 +2,6 @@
   "usingComponents": {
     "tabbar": "../../coms/tabbar/index",
     "list": "../../coms/tasklist/index",
-    "dialog": "../../coms/dialog/index"
+    "auth": "../../coms/auth/index"
   }
 }

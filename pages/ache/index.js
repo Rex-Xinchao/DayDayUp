@@ -1,10 +1,4 @@
-// pages/wish/index.js
-const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     type: 'all',
     typeName: '全部',
@@ -16,21 +10,26 @@ Page({
       education: '提升',
       sport: '运动'
     },
-    typeList:[]
+    typeList: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.initData()
   },
-
-  initData: function () {
-    let openid = wx.getStorageSync("openid")
+  typeChange: function(e) {
+    this.setData({
+      type: e.detail.type,
+      typeName: this.data.typeMap[e.detail.type],
+    })
+    this.initData()
+  },
+  initData: function() {
+    const openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/ache/list',
-      data: { type: this.data.type, openid: openid },
+      data: {
+        type: this.data.type,
+        openid: openid
+      },
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded" //post
@@ -46,25 +45,18 @@ Page({
       }
     })
   },
-
-  typeChange: function (e) {
-    this.setData({
-      type: e.detail.type,
-      typeName: this.data.typeMap[e.detail.type],
-    })
-    this.initData()
-  },
-
-  finish: function (e) {
-    let openid = wx.getStorageSync("openid")
+  finish: function(e) {
+    const openid = wx.getStorageSync("openid")
+    const acheid = e.mark.data.id
     wx.request({
       url: 'http://localhost:3000/ache/finish',
       data: {
-        id: e.mark.data.id,
-        openid: openid},
+        id: acheid,
+        openid: openid
+      },
       method: "POST",
       header: {
-        "Content-Type": "application/x-www-form-urlencoded" //post
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: (res) => {
         if (res.data.code == 200) {

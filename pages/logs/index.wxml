@@ -1,4 +1,3 @@
-<!--pages/logs/index.wxml-->
 <view class="main">
   <view class="log-list" wx:for="{{logList}}" wx:key="{{item.id}}">
     <view class="name">

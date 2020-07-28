@@ -1,25 +1,11 @@
-// pages/logs/index.js
+import { LOGMAP } from '../../static/lib/index.js';
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     logList: [],
-    typeMap: {
-      daily: '每日',
-      weekly: '每周',
-      monthly: '每月',
-      others: '额外',
-      ache: '成就',
-      wish: '愿望'
-    }
+    typeMap: LOGMAP
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
-    let openid = wx.getStorageSync("openid")
+    const openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/log/list',
       data: {
