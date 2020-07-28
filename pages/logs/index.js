@@ -9,7 +9,8 @@ Page({
       daily: '每日',
       weekly: '每周',
       monthly: '每月',
-      others: '额外'
+      others: '额外',
+      ache: '成就'
     }
   },
 

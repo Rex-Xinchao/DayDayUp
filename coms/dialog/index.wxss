@@ -1,0 +1,19 @@
+/* coms/dialog/index.wxss */
+.content-container{
+  position: fixed;
+  top: 20vh;
+  left: 10%;
+  width: 80%;
+  height: auto;
+  padding: 80rpx 20rpx;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.content-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.6)
+}

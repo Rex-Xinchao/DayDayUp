@@ -1,0 +1,5 @@
+
+<view class="content-mask" wx:if="{{show}}" bindtap="close"></view>
+<view class="content-container" wx:if="{{show}}">
+  <button open-type="getUserInfo" bindgetuserinfo="userInfoHandler">获取用户信息授权</button>
+</view>

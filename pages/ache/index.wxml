@@ -1,6 +1,6 @@
 <!--pages/wish/index.wxml-->
 <view class="main">
-  <wishbar bind:typeChange="typeChange"></wishbar>
+  <achebar bind:typeChange="typeChange"></achebar>
   <view class="wish-main">
     <view class="wish-statistic">
       <view class="name">{{typeName}}</view>
