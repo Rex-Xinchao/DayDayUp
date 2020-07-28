@@ -43,11 +43,13 @@ Component({
       if (data.current === data.limit) return
       let setData = {}
       data.current += 1
+      let openid = wx.getStorageSync("openid")
       wx.request({
         url: 'http://localhost:3000/task/update',
         data: {
           id:data.id,
-          current: data.current
+          current: data.current,
+          openid: openid
         },
         method: "POST",
         header: {

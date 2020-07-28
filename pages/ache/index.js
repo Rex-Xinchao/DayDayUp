@@ -1,4 +1,5 @@
 // pages/wish/index.js
+const app = getApp();
 Page({
 
   /**
@@ -25,59 +26,11 @@ Page({
     this.initData()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   initData: function () {
+    let openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/ache/list',
-      data: { type: this.data.type },
+      data: { type: this.data.type, openid: openid },
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded" //post
@@ -103,9 +56,12 @@ Page({
   },
 
   finish: function (e) {
+    let openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/ache/finish',
-      data: { id: e.mark.data.id },
+      data: {
+        id: e.mark.data.id,
+        openid: openid},
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded" //post

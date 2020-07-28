@@ -1,7 +1,6 @@
 //app.js
 App({
   onLaunch: function() {
-    // 登录
     wx.login({
       success: res => {
         wx.request({
@@ -17,7 +16,7 @@ App({
             "Content-Type": "application/x-www-form-urlencoded" //post
           },
           success: (res) => {
-            console.log(res.data)
+            wx.setStorageSync("openid", res.data.openid)
           }
         })
       }
@@ -25,7 +24,7 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        this.globalData.authSetting = res.authSetting
+        wx.setStorageSync("authSetting", res.authSetting)
         // 预获取权限
         // wx.authorize({
         //   scope: 'scope.address',
@@ -49,7 +48,6 @@ App({
     })
   },
   globalData: {
-    userInfo: {},
-    authSetting:{}
+    userInfo: {}
   }
 })
