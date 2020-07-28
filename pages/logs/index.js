@@ -10,7 +10,8 @@ Page({
       weekly: '每周',
       monthly: '每月',
       others: '额外',
-      ache: '成就'
+      ache: '成就',
+      wish: '愿望'
     }
   },
 

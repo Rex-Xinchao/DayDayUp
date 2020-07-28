@@ -1,10 +1,10 @@
-/* pages/wish/index.wxss */
+/* pages/ache/index.wxss */
 
 .main {
   padding-bottom: 97rpx;
 }
 
-wishbar {
+typebar {
   display: inline-block;
   width: 30%;
   height: calc(100vh - 97rpx);
@@ -12,14 +12,14 @@ wishbar {
   overflow-y: auto;
 }
 
-.wish-main {
+.ache-main {
   display: inline-block;
   width: 70%;
   height: auto;
   vertical-align: top;
 }
 
-.wish-statistic {
+.ache-statistic {
   width: 100%;
   height: auto;
   padding: 12rpx 24rpx;
@@ -30,7 +30,7 @@ wishbar {
   line-height: 40rpx;
 }
 
-.wish-statistic .name {
+.ache-statistic .name {
   width: 80rpx;
   font-size: 32rpx;
   color: #c93;
@@ -38,7 +38,7 @@ wishbar {
   box-sizing: border-box;
 }
 
-.wish-statistic .progress {
+.ache-statistic .progress {
   position: relative;
   flex: 1;
   height: auto;
@@ -46,14 +46,14 @@ wishbar {
   background-color: #ccc;
 }
 
-.wish-statistic .bar {
+.ache-statistic .bar {
   height: 100%;
   box-sizing: border-box;
   border-radius: 8rpx;
   background-color: #cff;
 }
 
-.wish-statistic .progress .text {
+.ache-statistic .progress .text {
   position: absolute;
   top: 0;
   right: 0;
@@ -62,7 +62,7 @@ wishbar {
   color: white;
 }
 
-.wish-list {
+.ache-list {
   width: 100%;
   height: auto;
   padding: 12rpx 24rpx;
@@ -70,13 +70,13 @@ wishbar {
   box-sizing: border-box;
 }
 
-.wish-list text {
+.ache-list text {
   display: inline-block;
   width: 100%;
   text-align: center;
 }
 
-.wish-list .list-main {
+.ache-list .list-main {
   width: 100%;
   height: auto;
   box-sizing: border-box;
@@ -89,7 +89,7 @@ wishbar {
   margin-bottom: 8rpx;
 }
 
-.wish-list .list-main .name {
+.ache-list .list-main .name {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -98,18 +98,18 @@ wishbar {
   font-size: 36rpx;
 }
 
-.wish-list .list-main .point {
+.ache-list .list-main .point {
   width: auto;
   line-height: 20px;
 }
 
-.wish-list .list-main .submit-button {
+.ache-list .list-main .submit-button {
   border-radius: 12rpx;
   background-color: #409EFF;
   color: white;
   padding: 6rpx 12rpx;
 }
 
-.wish-list .list-main .submit-button_finish {
+.ache-list .list-main .submit-button_finish {
   background-color: green;
 }

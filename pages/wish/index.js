@@ -5,16 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    type: 'all',
-    typeName: '全部',
-    total: 0,
-    finished: 0,
-    typeMap: {
-      all: '全部',
-      life: '生活',
-      education: '提升',
-      sport: '运动'
-    },
     typeList:[]
   },
 
@@ -77,7 +67,7 @@ Page({
   initData: function () {
     wx.request({
       url: 'http://localhost:3000/wish/list',
-      data: { type: this.data.type },
+      data: {},
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded" //post
@@ -85,33 +75,7 @@ Page({
       success: (res) => {
         if (res.data.code == 200) {
           this.setData({
-            typeList: res.data.data,
-            total: res.data.data.length,
-            finished: res.data.data.filter(item => item.finished == 1).length,
-          })
-        }
-      }
-    })
-  },
-
-  typeChange: function (e) {
-    this.setData({
-      type: e.detail.type,
-      typeName: this.data.typeMap[e.detail.type],
-    })
-    wx.request({
-      url: 'http://localhost:3000/wish/list',
-      data: { type: this.data.type },
-      method: "GET",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded" //post
-      },
-      success: (res) => {
-        if (res.data.code == 200) {
-          this.setData({
-            typeList: res.data.data,
-            total: res.data.data.length,
-            finished: res.data.data.filter(item => item.finished == 1).length,
+            typeList: res.data.data
           })
         }
       }
@@ -121,7 +85,7 @@ Page({
   finish: function (e) {
     wx.request({
       url: 'http://localhost:3000/wish/finish',
-      data: { id: e.mark.data.id },
+      data: { id: e.mark.data.id, time: Number(e.mark.data.time) + 1 },
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded" //post

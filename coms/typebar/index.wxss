@@ -1,15 +1,15 @@
 /* coms/wishbar/index.wxss */
-.wishbar-container{
+.typebar-container{
   width: 100%;
   height: 100%;
 }
 
-.wishbar-container .list {
+.typebar-container .list {
   width: 100%;
   height: auto;
 }
 
-.wishbar-container .check-btn {
+.typebar-container .check-btn {
   width: calc(100% - 12rpx);
   font-size: 36rpx;
   line-height: 36rpx;

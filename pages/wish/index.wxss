@@ -4,62 +4,11 @@
   padding-bottom: 97rpx;
 }
 
-wishbar {
-  display: inline-block;
-  width: 30%;
-  height: calc(100vh - 97rpx);
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .wish-main {
   display: inline-block;
-  width: 70%;
+  width: 100%;
   height: auto;
   vertical-align: top;
-}
-
-.wish-statistic {
-  width: 100%;
-  height: auto;
-  padding: 12rpx 24rpx;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  box-sizing: border-box;
-  line-height: 40rpx;
-}
-
-.wish-statistic .name {
-  width: 80rpx;
-  font-size: 32rpx;
-  color: #c93;
-  font-weight: bolder;
-  box-sizing: border-box;
-}
-
-.wish-statistic .progress {
-  position: relative;
-  flex: 1;
-  height: auto;
-  border-radius: 8rpx;
-  background-color: #ccc;
-}
-
-.wish-statistic .bar {
-  height: 100%;
-  box-sizing: border-box;
-  border-radius: 8rpx;
-  background-color: #cff;
-}
-
-.wish-statistic .progress .text {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  color: white;
 }
 
 .wish-list {
@@ -68,12 +17,6 @@ wishbar {
   padding: 12rpx 24rpx;
   font-size: 30rpx;
   box-sizing: border-box;
-}
-
-.wish-list text {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
 }
 
 .wish-list .list-main {
@@ -99,6 +42,11 @@ wishbar {
 }
 
 .wish-list .list-main .point {
+  width: auto;
+  line-height: 20px;
+}
+
+.wish-list .list-main .time {
   width: auto;
   line-height: 20px;
 }

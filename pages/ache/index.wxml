@@ -1,8 +1,8 @@
-<!--pages/wish/index.wxml-->
+<!--pages/ache/index.wxml-->
 <view class="main">
-  <achebar bind:typeChange="typeChange"></achebar>
-  <view class="wish-main">
-    <view class="wish-statistic">
+  <typebar bind:typeChange="typeChange"></typebar>
+  <view class="ache-main">
+    <view class="ache-statistic">
       <view class="name">{{typeName}}</view>
       <view class="progress">
         <view class="bar" style="width: {{finished / total * 100}}%">
@@ -10,7 +10,7 @@
         <view class="text">{{finished}} / {{total}}</view>
       </view>
     </view>
-    <view class="wish-list">
+    <view class="ache-list">
       <text>*成就*</text>
       <view class="list-main" wx:for="{{typeList}}" wx:key="{{index}}">
         <view class="name">{{item.name}}</view>

@@ -1,5 +1,5 @@
 <!--coms/wishbar/index.wxml-->
-<view class="wishbar-container">
+<view class="typebar-container">
   <view class="list" wx:for="{{typeMap}}" wx:key="{{item}}">
     <button class="check-btn"  mark:type="{{index}}" bindtap="typeChange">{{item}}</button>
   </view>

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "tabbar": "../../coms/tabbar/index",
-    "achebar": "../../coms/achebar/index"
+    "typebar": "../../coms/typebar/index"
   }
 }
