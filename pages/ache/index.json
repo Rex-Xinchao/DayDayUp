@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "tabbar": "../../coms/tabbar/index",
-    "wishbar": "../../coms/wishbar/index"
+    "achebar": "../../coms/achebar/index"
   }
 }
