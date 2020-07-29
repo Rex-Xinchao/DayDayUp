@@ -1,15 +1,7 @@
 // coms/wishbar/index.js
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
-
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
     typeMap: {
       all:'全部',
@@ -24,10 +16,6 @@ Component({
       others: '额外任务'
     }
   },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
     typeChange: function(e) {
       const type = e.mark.type

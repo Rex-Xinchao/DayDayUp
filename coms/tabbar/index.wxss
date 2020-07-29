@@ -1,4 +1,4 @@
-.weibo-tabbar {
+.tabbar-container {
     bottom: 0;
     height: 97rpx;
     padding: 12rpx 0rpx;
@@ -8,7 +8,7 @@
     background: #ffffff;
     box-sizing: border-box;
 }
-.weibo-tabbar::after {
+.tabbar-container::after {
     content: "";
     position: absolute;
     width: 200%;
@@ -19,7 +19,7 @@
     transform: scale(0.5);
     transform-origin: 0 0;
   }
-  .weibo-tabbar .item-left, .item-right{
+  .tabbar-container .item{
     z-index: 999;
     width: 50%;
     display: flex;
@@ -28,8 +28,4 @@
     flex-direction: column;
     font-size: 20rpx;
     color: #b1b1b1;
-}
-.shouye, .wode {
-    height: 45rpx;
-    width: 45rpx;
 }

@@ -2,15 +2,19 @@ Page({
   data: {
     type: 'all',
     typeName: '全部',
-    total: 0,
-    finished: 0,
     typeMap: {
       all: '全部',
       life: '生活',
       education: '提升',
       sport: '运动'
     },
-    typeList: []
+    typeList: [],
+    params:{
+      current: 0,
+      pageSize: 10,
+      finished: 0,
+      total: 0
+    }
   },
   onLoad: function(options) {
     this.initData()
@@ -22,13 +26,20 @@ Page({
     })
     this.initData()
   },
-  initData: function() {
+  initData: function (increase = false) {
+    if (!increase) {
+      this.setData({
+        'params.current': 0
+      })
+    }
     const openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/ache/list',
       data: {
         type: this.data.type,
-        openid: openid
+        openid: openid,
+        current: this.data.params.current,
+        pageSize: this.data.params.pageSize
       },
       method: "GET",
       header: {
@@ -36,10 +47,16 @@ Page({
       },
       success: (res) => {
         if (res.data.code == 200) {
+          let list = this.data.typeList
+          if (increase) {
+            list = list.concat(res.data.data.list)
+          } else {
+            list = res.data.data.list
+          }
           this.setData({
-            typeList: res.data.data,
-            total: res.data.data.length,
-            finished: res.data.data.filter(item => item.finished == 1).length,
+            typeList: list,
+            'params.finished': res.data.data.finished,
+            'params.total': res.data.data.total
           })
         }
       }
@@ -64,5 +81,15 @@ Page({
         }
       }
     })
-  }
+  },
+  onReachBottom: function () {
+    if (this.data.params.total > this.data.typeList.length) {
+      this.setData({
+        'params.current': this.data.params.current + 1
+      })
+      this.initData(true);
+    } else {
+      console.info('已经到底了')
+    }
+  },
 })

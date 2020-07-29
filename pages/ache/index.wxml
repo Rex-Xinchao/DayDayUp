@@ -5,9 +5,9 @@
     <view class="ache-statistic">
       <view class="name">{{typeName}}</view>
       <view class="progress">
-        <view class="bar" style="width: {{finished / total * 100}}%">
+        <view class="bar" style="width: {{params.finished / params.total * 100}}%">
         </view>
-        <view class="text">{{finished}} / {{total}}</view>
+        <view class="text">{{params.finished}} / {{params.total}}</view>
       </view>
     </view>
     <view class="ache-list">

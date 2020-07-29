@@ -1,42 +1,18 @@
-const app = getApp();
+import { MENULIST} from '../../static/lib/index.js'
 Component({
   properties: {
   },
   data: {
-    // 这里是一些组件内部数据
-    menu: [
-      {
-        name: '任务',
-        icon: 'task',
-        to:'/pages/task/index'
-      },
-      {
-        name: '成就',
-        icon: 'achievement',
-        to: '/pages/ache/index'
-      },
-      {
-        name: '愿望',
-        icon: 'wishlist',
-        to: '/pages/wish/index'
-      },
-      {
-        name: '日志',
-        icon: 'log',
-        to: '/pages/logs/index'
-      }
-    ]
+    menu: MENULIST
   },
   methods: {
-    // 这里是一个自定义方法
     pageTo: (e) => {
       const url = e.mark.to
-      // 判断是否为主页面防止原地跳转
-      if (!e.currentTarget.dataset.hi) {
-        wx.redirectTo({
-          url: url
-        })
-      }
+      const currentUrl = '/' + getCurrentPages()[0].route
+      if (currentUrl === url) return
+      wx.redirectTo({
+        url: url
+      })
     }
   }
 })
