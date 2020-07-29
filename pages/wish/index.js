@@ -1,16 +1,28 @@
 Page({
   data: {
-    typeList: []
+    typeList: [],
+    params: {
+      current:0,
+      pageSize: 10,
+      total: 0
+    }
   },
   onLoad: function(options) {
     this.initData()
   },
-  initData: function () {
+  initData: function (increase = false) {
+    if (!increase) {
+      this.setData({
+        'params.current': 0
+      })
+    }
     let openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/wish/list',
       data: {
-        openid: openid
+        openid: openid,
+        current: this.data.params.current,
+        pageSize: this.data.params.pageSize
       },
       method: "GET",
       header: {
@@ -18,8 +30,15 @@ Page({
       },
       success: (res) => {
         if (res.data.code == 200) {
+          let list = this.data.typeList
+          if (increase) {
+            list = list.concat(res.data.data.list)
+          } else {
+            list = res.data.data.list
+          }
           this.setData({
-            typeList: res.data.data
+            typeList: list,
+            'params.total': res.data.data.total
           })
         }
       }
@@ -46,5 +65,15 @@ Page({
         }
       }
     })
+  },
+  onReachBottom: function () {
+    if (this.data.params.total > this.data.typeList.length) {
+      this.setData({
+        'params.current': this.data.params.current + 1
+      })
+      this.initData(true);
+    } else {
+      console.info('已经到底了')
+    }
   }
 })

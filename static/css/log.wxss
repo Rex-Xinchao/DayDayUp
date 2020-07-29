@@ -1,7 +1,7 @@
 .log-list {
   width: calc(100% - 8rpx);
   height: auto;
-  padding: 12rpx 4rpx;
+  padding: 16rpx 4rpx;
   font-size: 32rpx;
   display: flex;
   justify-content: space-between;
