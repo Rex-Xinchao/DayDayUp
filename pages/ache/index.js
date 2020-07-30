@@ -1,3 +1,4 @@
+const globalData = getApp().globalData
 Page({
   data: {
     type: 'all',
@@ -34,7 +35,7 @@ Page({
     }
     const openid = wx.getStorageSync("openid")
     wx.request({
-      url: 'http://localhost:3000/ache/list',
+      url: `${globalData.host}/ache/list`,
       data: {
         type: this.data.type,
         openid: openid,
@@ -66,7 +67,7 @@ Page({
     const openid = wx.getStorageSync("openid")
     const acheid = e.mark.data.id
     wx.request({
-      url: 'http://localhost:3000/ache/finish',
+      url: `${globalData.host}/ache/finish`,
       data: {
         id: acheid,
         openid: openid

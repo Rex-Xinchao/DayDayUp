@@ -1,3 +1,4 @@
+const globalData = getApp().globalData
 Page({
   data: {
     daily: [],
@@ -14,7 +15,7 @@ Page({
   initData: function() {
     const openid = wx.getStorageSync("openid")
     wx.request({
-      url: 'http://localhost:3000/task/list',
+      url: `${globalData.host}/task/list`,
       data: {
         openid: openid
       },

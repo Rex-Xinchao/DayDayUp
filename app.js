@@ -1,7 +1,8 @@
 //app.js
 App({
   globalData: {
-    userInfo: {}
+    userInfo: {},
+    host: 'http://localhost:3000'
   },
   onLaunch: function() {
     wx.login({
@@ -54,7 +55,7 @@ App({
   },
   getUser: function (openid) {
     wx.request({
-      url: 'http://localhost:3000/user/info',
+      url: `${this.globalData.host}/user/info`,
       data: {
         openid: openid
       },

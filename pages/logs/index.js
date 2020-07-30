@@ -1,6 +1,7 @@
 import {
   LOGMAP
 } from '../../static/lib/index.js';
+const globalData = getApp().globalData
 Page({
   data: {
     logList: [],
@@ -22,7 +23,7 @@ Page({
     }
     const openid = wx.getStorageSync("openid")
     wx.request({
-      url: 'http://localhost:3000/log/list',
+      url: `${globalData.host}/log/list`,
       data: {
         openid: openid,
         current: this.data.params.current,

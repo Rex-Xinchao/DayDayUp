@@ -1,5 +1,5 @@
 // coms/list/index.js
-let fsm = wx.getFileSystemManager();
+const globalData = getApp().globalData
 Component({
   /**
    * 组件的属性列表
@@ -45,7 +45,7 @@ Component({
       data.current += 1
       let openid = wx.getStorageSync("openid")
       wx.request({
-        url: 'http://localhost:3000/task/update',
+        url: `${globalData.host}/task/update`,
         data: {
           id:data.id,
           current: data.current,
