@@ -36,7 +36,6 @@ Page({
           } else {
             list = res.data.data.list
           }
-          console.log(list)
           this.setData({
             typeList: list,
             'params.total': res.data.data.total
