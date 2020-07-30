@@ -5,7 +5,9 @@ App({
   },
   onLaunch: function() {
     wx.login({
-      success: res => this.getUserId(res.code)
+      success: res => {
+        this.getUserId(res.code)
+      }
     })
     // 获取用户信息
     wx.getSetting({
@@ -16,7 +18,7 @@ App({
       }
     })
   },
-  getUserId: (code) => {
+  getUserId: function(code) {
     wx.request({
       url: 'https://api.weixin.qq.com/sns/jscode2session',
       data: {
@@ -31,6 +33,7 @@ App({
       },
       success: (res) => {
         wx.setStorageSync("openid", res.data.openid)
+        this.getUser(res.data.openid)
       }
     })
   },
@@ -47,6 +50,21 @@ App({
     wx.authorize({
       scope: 'scope.address',
       success: () => wx.chooseAddress()
+    })
+  },
+  getUser: function (openid) {
+    wx.request({
+      url: 'http://localhost:3000/user/info',
+      data: {
+        openid: openid
+      },
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded" //post
+      },
+      success: (res) => {
+        wx.setStorageSync("point", res.data.point)
+      }
     })
   }
 })

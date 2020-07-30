@@ -36,6 +36,7 @@ Page({
           } else {
             list = res.data.data.list
           }
+          console.log(list)
           this.setData({
             typeList: list,
             'params.total': res.data.data.total
@@ -46,13 +47,11 @@ Page({
   },
   finish: function (e) {
     const wishid = e.mark.data.id
-    const time = Number(e.mark.data.time) + 1
     const openid = wx.getStorageSync("openid")
     wx.request({
       url: 'http://localhost:3000/wish/finish',
       data: {
         id: wishid,
-        time: time,
         openid: openid
       },
       method: "POST",
