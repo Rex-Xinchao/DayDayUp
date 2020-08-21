@@ -2,7 +2,9 @@
 App({
   globalData: {
     userInfo: {},
-    host: 'http://localhost:3000'
+    // host: 'http://localhost:3000'
+    // host: 'http://121.36.201.82:3000'
+    host: 'https://rexsun.site:3000'
   },
   onLaunch: function() {
     wx.login({
@@ -21,20 +23,17 @@ App({
   },
   getUserId: function(code) {
     wx.request({
-      url: 'https://api.weixin.qq.com/sns/jscode2session',
+      url: `${this.globalData.host}/user/getId`,
       data: {
-        appid: 'wx9d2b9aad36bb0047',
-        secret: '6cce3131885af699672361cb2130c09b',
-        js_code: code,
-        grant_type: 'authorization_code'
+        code: code
       },
       method: "GET",
       header: {
         "Content-Type": "application/x-www-form-urlencoded" //post
       },
       success: (res) => {
-        wx.setStorageSync("openid", res.data.openid)
-        this.getUser(res.data.openid)
+        wx.setStorageSync("openid", res.data.data)
+        this.getUser(res.data.data)
       }
     })
   },
