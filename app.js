@@ -2,9 +2,7 @@
 App({
   globalData: {
     userInfo: {},
-    // host: 'http://localhost:3000'
-    // host: 'http://121.36.201.82:3000'
-    host: 'https://rexsun.site:3000'
+    host: 'https://www.rexsun.site/api'
   },
   onLaunch: function() {
     wx.login({
